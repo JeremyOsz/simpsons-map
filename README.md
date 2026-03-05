@@ -1,101 +1,195 @@
 # Simpsons Country Mentions Explorer
 
-A Next.js + TypeScript web app for exploring country mentions across *The Simpsons* with a cartoon-inspired map UI, mention evidence cards, and region drill-down for allowlisted countries.
+A Next.js + TypeScript app that maps country mentions across *The Simpsons* and shows supporting snippets by episode.
 
-## Tech stack
+It includes:
+- A world map + region drill-down UI
+- Search/filterable mention evidence
+- Local in-memory datastore with JSON persistence
+- Ingestion pipelines (Fandom + optional `thesimpsons` CSVs)
+- API routes for UI and admin/debug workflows
 
-- Next.js (App Router), TypeScript
-- MapLibre GL (heatmap + region layer switching)
-- Prisma schema (PostgreSQL-ready)
-- TanStack Query
-- Vitest + Playwright test scaffolding
+## 1. What This Project Does
 
-## Features implemented
+The app builds a country-mention dataset from source text and lets you explore it in two ways:
+- `Map` view: countries colored by mention count, optional region-level view for allowlisted countries
+- `List` view: sortable country table + unknown/fictional place bucket
 
-- World country heatmap with click-to-open country panel
-- Mention detail cards with episode code, confidence, snippet, and source URL
-- Search and filters:
-  - Text query (country/quote + episode code pattern)
-  - Season range
-  - Confidence bucket
-  - Source type
-- Region drill-down for allowlisted countries (`US`, `CA`, `AU`, `IN`, `CN`, `BR`, `RU`)
-- API routes from the plan:
-  - `GET /api/countries`
-  - `GET /api/countries/:iso2`
-  - `GET /api/countries/:iso2/regions`
-  - `GET /api/mentions`
-  - `GET /api/episodes/:id`
-  - `POST /api/ingestion/run`
-  - `GET /api/ingestion/runs/:id`
-- Scraper pipeline for multiple sources:
-  - Simpsons Fandom `Category:Countries` via MediaWiki API
-  - Optional `thesimpsons` script-lines CSV via `THSIMPSONS_SCRIPT_LINES_CSV_URL` (supports `https://...` or local file path)
-  - Optional episodes CSV via `THSIMPSONS_EPISODES_CSV_URL` (supports `https://...` or local file path) to resolve unknown episode ids
-- Auto-publish threshold (`CONFIDENCE_PUBLISH_THRESHOLD`, default `0.55`)
+When you pick a country, the side panel shows:
+- Mention groups by episode
+- Confidence scores
+- Snippets with source links
+- Season trend counts
 
-## Quick start
+## 2. Tech Stack
 
-1. Install dependencies:
+- Next.js App Router + React 19 + TypeScript
+- TanStack Query (client-side data fetching/caching)
+- D3 geo + `geojson-world-map` (SVG map rendering)
+- Tailwind CSS
+- Zod for API query validation
+- Vitest (unit/integration) + Playwright (E2E)
+- Prisma schema included for PostgreSQL production modeling
+
+## 3. Quick Start
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Install
 
 ```bash
 npm install
 ```
 
-2. Copy env:
+### Configure env
 
 ```bash
 cp .env.example .env.local
 ```
 
-3. Run app:
+Default env variables:
+
+```bash
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/simpsons_map?schema=public"
+INGESTION_ADMIN_TOKEN="change-me"
+CONFIDENCE_PUBLISH_THRESHOLD="0.55"
+THSIMPSONS_SCRIPT_LINES_CSV_URL=""
+THSIMPSONS_EPISODES_CSV_URL=""
+```
+
+### Run app
 
 ```bash
 npm run dev
 ```
 
-4. Optional checks:
+Open `http://localhost:3000`.
+
+## 4. Development Commands
+
+```bash
+npm run dev              # start Next.js dev server
+npm run build            # production build
+npm run start            # run built app
+npm run lint             # lint
+npm test                 # vitest run
+npm run test:coverage    # vitest with coverage
+npm run test:e2e         # playwright tests
+npm run ingest           # run ingestion pipeline once
+npm run seed             # print sample dataset counts
+npm run export:thesimpsons  # export local CSVs via R (optional)
+```
+
+## 5. Data and Persistence
+
+Runtime data is managed by [`src/server/data-store.ts`](src/server/data-store.ts):
+
+- Starts from sample data in [`src/data/sample-data.ts`](src/data/sample-data.ts)
+- Merges in persisted runtime records from `.data/runtime-store.json`
+- Persists updated mentions + ingestion runs back to `.data/runtime-store.json`
+
+Current runtime store behavior:
+- Countries/regions/episodes are derived from in-memory sample structures
+- Mentions + runs are extended by ingestion output
+- Mention dedupe key is:
+  - `(countryIso2, episodeId, normalizedSnippetHash, sourceUrl)`
+
+## 6. Ingestion Overview
+
+Ingestion entrypoints:
+- API: `POST /api/ingestion/run` (requires `x-admin-token`)
+- Script: `npm run ingest`
+
+Pipeline (see [`src/server/ingestion-service.ts`](src/server/ingestion-service.ts)):
+1. Run source scrapers in parallel:
+   - Fandom scraper: [`src/lib/ingestion/scrape-fandom.ts`](src/lib/ingestion/scrape-fandom.ts)
+   - Optional CSV scraper: [`src/lib/ingestion/scrape-thesimpsons.ts`](src/lib/ingestion/scrape-thesimpsons.ts)
+2. Merge mentions
+3. Try to enrich unknown episodes (`episodeId = "0-0"`) from hash matches and episode parsing
+4. Keep only mentions at/above `CONFIDENCE_PUBLISH_THRESHOLD` (default `0.55`)
+5. Upsert into runtime store with dedupe
+6. Run backfill for unresolved episodes and mark run complete/failed
+
+### Optional `thesimpsons` CSV inputs
+
+Set env vars to local file paths or HTTP URLs:
+- `THSIMPSONS_SCRIPT_LINES_CSV_URL`
+- `THSIMPSONS_EPISODES_CSV_URL`
+
+If unset, dataset ingestion is skipped.
+
+## 7. API Summary
+
+### Main API
+
+- `GET /api/countries`
+  - Query: `q`, `seasonFrom`, `seasonTo`, `sort`
+- `GET /api/countries/:iso2`
+  - Returns selected country + mentions for that country
+- `GET /api/countries/:iso2/regions`
+  - Region breakdown for allowlisted countries only
+- `GET /api/mentions`
+  - Query: `country`, `region`, `seasonFrom`, `seasonTo`, `q`, `confidence`, `sourceType`, `cursor`, `limit`
+- `GET /api/episodes/:id`
+- `POST /api/ingestion/run`
+  - Header: `x-admin-token`
+- `GET /api/ingestion/runs/:id`
+
+### Admin/debug API
+
+- `GET /api/admin/unknown-wiki`
+- `GET /api/admin/unknown-places`
+
+For full route behavior and examples, see [`docs/how-it-works.md`](docs/how-it-works.md).
+
+## 8. Testing
+
+- Unit tests: parsers, confidence scoring, country mapping, hashing, region mapping, and ingestion helpers
+- Integration tests: API route behavior
+- E2E tests: map flow and UI interactions
+
+Run:
 
 ```bash
 npm test
 npm run test:e2e
 ```
 
-## Data notes
+## 9. Project Structure
 
-- The app seeds from local sample data and persists runtime ingestion state to `.data/runtime-store.json`.
-- Prisma schema is included for production Postgres migration and persistence.
-- Region map geometry is included for US demo (`public/geo/regions/us.geojson`); add more files to extend map drill-down visuals.
-
-## Ingestion
-
-- Trigger via API:
-  - `POST /api/ingestion/run`
-  - Header: `x-admin-token: $INGESTION_ADMIN_TOKEN`
-- Or run script:
-
-```bash
-npm run ingest
+```text
+app/
+  api/                   # route handlers
+  components/            # map + panel UI components
+src/
+  data/                  # sample bootstrap data
+  lib/                   # parsing, scoring, mapping, ingestion helpers
+  server/                # datastore + ingestion orchestration
+  types/                 # domain types
+public/geo/
+  countries.geojson
+  regions/*.geojson      # region geometry for allowlisted countries
+scripts/
+  run-ingestion.ts
+  seed.ts
+prisma/
+  schema.prisma
+tests/
+  unit/ integration/ e2e/
 ```
 
-The ingestion flow:
+## 10. Notes and Limitations
 
-1. Pull mentions from Fandom category pages (parallelized page parsing).
-2. Optionally pull mentions from script-lines CSV (`THSIMPSONS_SCRIPT_LINES_CSV_URL`).
-3. Parse episode refs (`SxxEyy`, `Season X Episode Y`) when present.
-4. Score confidence.
-5. Auto-publish high-confidence mentions.
-6. Deduplicate by `(countryIso2, episodeId, normalizedSnippetHash, sourceUrl)`.
+- Runtime persistence currently uses local JSON (`.data/runtime-store.json`) and in-memory objects, not Prisma runtime DB writes.
+- Prisma schema models production persistence but is not wired into route handlers yet.
+- Region drill-down is enabled by allowlist (`US`, `CA`, `AU`, `IN`, `CN`, `BR`, `RU`) and available GeoJSON files.
+- Unknown/fictional country pages are bucketed under `ZZ`.
 
-### Export The Simpsons CSVs locally
+## 11. Further Documentation
 
-If you installed the `thesimpsons` R package, you can export local CSV files used by ingestion:
-
-```bash
-npm run export:thesimpsons
-```
-
-This writes:
-
-- `.data/thesimpsons/simpsons_script_lines.csv`
-- `.data/thesimpsons/simpsons_episodes.csv`
+- Implementation details: [`docs/how-it-works.md`](docs/how-it-works.md)
+- Prisma model: [`prisma/schema.prisma`](prisma/schema.prisma)
+- Workspace agent policies: [`AGENTS.md`](AGENTS.md)
