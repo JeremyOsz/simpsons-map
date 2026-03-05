@@ -81,6 +81,7 @@ const mentionSeed: Omit<Mention, "normalizedSnippetHash">[] = [
   {
     id: "m5",
     countryIso2: "AU",
+    regionCode: "NSW",
     episodeId: "e6",
     snippet: "Bart gets in trouble after a prank call reaches Australia.",
     confidence: 0.9,
@@ -126,6 +127,7 @@ const mentionSeed: Omit<Mention, "normalizedSnippetHash">[] = [
   {
     id: "m9",
     countryIso2: "BR",
+    regionCode: "SP",
     episodeId: "e5",
     snippet: "A carnival sequence makes a brief nod to Brazil.",
     confidence: 0.72,
@@ -164,6 +166,42 @@ const mentionSeed: Omit<Mention, "normalizedSnippetHash">[] = [
     snippet: "Homer imitates a British accent and mentions London.",
     confidence: 0.76,
     sourceUrl: "https://simpsons.fandom.com/wiki/United_Kingdom",
+    sourceType: "WIKI_PAGE",
+    isImplied: true,
+    publishedAt: "2026-03-01T00:00:00.000Z"
+  },
+  {
+    id: "m13",
+    countryIso2: "IN",
+    regionCode: "MH",
+    episodeId: "e2",
+    snippet: "A throwaway line references Mumbai, Maharashtra in India.",
+    confidence: 0.73,
+    sourceUrl: "https://simpsons.fandom.com/wiki/India",
+    sourceType: "REFERENCE_LINK",
+    isImplied: true,
+    publishedAt: "2026-03-01T00:00:00.000Z"
+  },
+  {
+    id: "m14",
+    countryIso2: "CN",
+    regionCode: "GD",
+    episodeId: "e3",
+    snippet: "A gag mentions Shenzhen in Guangdong, China.",
+    confidence: 0.74,
+    sourceUrl: "https://simpsons.fandom.com/wiki/China",
+    sourceType: "REFERENCE_LINK",
+    isImplied: true,
+    publishedAt: "2026-03-01T00:00:00.000Z"
+  },
+  {
+    id: "m15",
+    countryIso2: "RU",
+    regionCode: "MOW",
+    episodeId: "e4",
+    snippet: "One joke compares a scene to downtown Moscow, Russia.",
+    confidence: 0.72,
+    sourceUrl: "https://simpsons.fandom.com/wiki/Russia",
     sourceType: "WIKI_PAGE",
     isImplied: true,
     publishedAt: "2026-03-01T00:00:00.000Z"

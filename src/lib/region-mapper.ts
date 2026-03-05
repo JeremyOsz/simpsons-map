@@ -81,6 +81,46 @@ const REGION_DEFINITIONS: Record<string, Record<string, RegionDefinition>> = {
     TAS: { name: "Tasmania", keywords: ["tasmania", "hobart"] },
     ACT: { name: "Australian Capital Territory", keywords: ["australian capital territory", "canberra"] },
     NT: { name: "Northern Territory", keywords: ["northern territory", "darwin"] }
+  },
+  IN: {
+    MH: { name: "Maharashtra", keywords: ["maharashtra", "mumbai", "pune"] },
+    DL: { name: "Delhi", keywords: ["delhi", "new delhi"] },
+    KA: { name: "Karnataka", keywords: ["karnataka", "bengaluru", "bangalore"] },
+    TN: { name: "Tamil Nadu", keywords: ["tamil nadu", "chennai"] },
+    WB: { name: "West Bengal", keywords: ["west bengal", "kolkata", "calcutta"] },
+    GJ: { name: "Gujarat", keywords: ["gujarat", "ahmedabad"] },
+    UP: { name: "Uttar Pradesh", keywords: ["uttar pradesh", "lucknow"] },
+    RJ: { name: "Rajasthan", keywords: ["rajasthan", "jaipur"] }
+  },
+  CN: {
+    BJ: { name: "Beijing", keywords: ["beijing"] },
+    SH: { name: "Shanghai", keywords: ["shanghai"] },
+    GD: { name: "Guangdong", keywords: ["guangdong", "guangzhou", "shenzhen"] },
+    SC: { name: "Sichuan", keywords: ["sichuan", "chengdu"] },
+    ZJ: { name: "Zhejiang", keywords: ["zhejiang", "hangzhou"] },
+    JS: { name: "Jiangsu", keywords: ["jiangsu", "nanjing"] },
+    HB: { name: "Hubei", keywords: ["hubei", "wuhan"] },
+    SD: { name: "Shandong", keywords: ["shandong", "qingdao"] }
+  },
+  BR: {
+    SP: { name: "Sao Paulo", keywords: ["sao paulo", "são paulo"] },
+    RJ: { name: "Rio de Janeiro", keywords: ["rio de janeiro"] },
+    MG: { name: "Minas Gerais", keywords: ["minas gerais", "belo horizonte"] },
+    BA: { name: "Bahia", keywords: ["bahia", "salvador"] },
+    RS: { name: "Rio Grande do Sul", keywords: ["rio grande do sul", "porto alegre"] },
+    PR: { name: "Parana", keywords: ["parana", "paraná", "curitiba"] },
+    PE: { name: "Pernambuco", keywords: ["pernambuco", "recife"] },
+    CE: { name: "Ceara", keywords: ["ceara", "ceará", "fortaleza"] }
+  },
+  RU: {
+    MOW: { name: "Moscow", keywords: ["moscow"] },
+    SPE: { name: "Saint Petersburg", keywords: ["saint petersburg", "st petersburg"] },
+    KDA: { name: "Krasnodar Krai", keywords: ["krasnodar", "sochi"] },
+    SVE: { name: "Sverdlovsk Oblast", keywords: ["sverdlovsk", "yekaterinburg", "ekaterinburg"] },
+    NVS: { name: "Novosibirsk Oblast", keywords: ["novosibirsk"] },
+    TAT: { name: "Tatarstan", keywords: ["tatarstan", "kazan"] },
+    ROS: { name: "Rostov Oblast", keywords: ["rostov", "rostov on don"] },
+    PRI: { name: "Primorsky Krai", keywords: ["primorsky", "vladivostok"] }
   }
 };
 

@@ -53,6 +53,7 @@
     {
       "id": "m5",
       "countryIso2": "AU",
+      "regionCode": "NSW",
       "episodeId": "e6",
       "snippet": "Bart gets in trouble after a prank call reaches Australia.",
       "confidence": 0.9,
@@ -102,6 +103,7 @@
     {
       "id": "m9",
       "countryIso2": "BR",
+      "regionCode": "SP",
       "episodeId": "e5",
       "snippet": "A carnival sequence makes a brief nod to Brazil.",
       "confidence": 0.72,
@@ -147,6 +149,45 @@
       "isImplied": true,
       "publishedAt": "2026-03-01T00:00:00.000Z",
       "normalizedSnippetHash": "a3a3da64523e5b6634724c7cb1a38edf90ba156ef609d24296ed8209bfa7eb20"
+    },
+    {
+      "id": "m13",
+      "countryIso2": "IN",
+      "regionCode": "MH",
+      "episodeId": "e2",
+      "snippet": "A throwaway line references Mumbai, Maharashtra in India.",
+      "confidence": 0.73,
+      "sourceUrl": "https://simpsons.fandom.com/wiki/India",
+      "sourceType": "REFERENCE_LINK",
+      "isImplied": true,
+      "publishedAt": "2026-03-01T00:00:00.000Z",
+      "normalizedSnippetHash": "e744d2808e4b8c4fdcbe421a189743ad193c618187fa0827158930d713e904d7"
+    },
+    {
+      "id": "m14",
+      "countryIso2": "CN",
+      "regionCode": "GD",
+      "episodeId": "e3",
+      "snippet": "A gag mentions Shenzhen in Guangdong, China.",
+      "confidence": 0.74,
+      "sourceUrl": "https://simpsons.fandom.com/wiki/China",
+      "sourceType": "REFERENCE_LINK",
+      "isImplied": true,
+      "publishedAt": "2026-03-01T00:00:00.000Z",
+      "normalizedSnippetHash": "9883407c866a9e3cb86a8ff755bba36032d61de35ef7e911be222e202ccd600e"
+    },
+    {
+      "id": "m15",
+      "countryIso2": "RU",
+      "regionCode": "MOW",
+      "episodeId": "e4",
+      "snippet": "One joke compares a scene to downtown Moscow, Russia.",
+      "confidence": 0.72,
+      "sourceUrl": "https://simpsons.fandom.com/wiki/Russia",
+      "sourceType": "WIKI_PAGE",
+      "isImplied": true,
+      "publishedAt": "2026-03-01T00:00:00.000Z",
+      "normalizedSnippetHash": "5a55f0dda97e78094d849efa9696422be4fa3995b8b7601fd651dd5f3f39e87a"
     },
     {
       "id": "ec8088b4-9f7d-4171-ba93-4191499870c5",
@@ -20135,7 +20176,7 @@
     },
     {
       "id": "285b46d4-5847-448d-ad0b-4a8c34b0f49a",
-      "countryIso2": "ZZ",
+      "countryIso2": "BN",
       "episodeId": "0-0",
       "snippet": "President Cletus Spuckler announces he and Brandine Spuckler will be travelling to Brunei. When Lisa unwraps Bart's globe, Brunei is one of the countries seen on the globe.",
       "confidence": 0.7,
@@ -20147,7 +20188,7 @@
     },
     {
       "id": "6845434e-0e3c-46d9-a9da-a6a7c19a3459",
-      "countryIso2": "ZZ",
+      "countryIso2": "BN",
       "episodeId": "6-16",
       "snippet": "Episode – \"Bart vs. Australia\" Seen on globe.",
       "confidence": 0.55,
@@ -20643,7 +20684,7 @@
     },
     {
       "id": "4e7ec792-8294-42f3-b994-6f52d6b4c061",
-      "countryIso2": "ZZ",
+      "countryIso2": "CZ",
       "episodeId": "18-4",
       "snippet": "THOH – \"Treehouse of Horror XVII\" (Prague mentioned)",
       "confidence": 0.55,
@@ -20787,7 +20828,7 @@
     },
     {
       "id": "9874ed71-f279-497e-8328-b28a3fdef8dc",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "In England, Sir Ringo Starr receives Marge painting of him which she did high school and writes back a reply.",
       "confidence": 0.7,
@@ -20799,7 +20840,7 @@
     },
     {
       "id": "497390c0-f6e8-4855-bf85-5a845162d664",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "When Homer gets to stay at Mr. Burns' mansion, he tells Marge he call the Queen of England and asked her how it was going.",
       "confidence": 0.7,
@@ -20811,7 +20852,7 @@
     },
     {
       "id": "11bc84ad-bf08-4b14-91df-d50defc18230",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "Grampa visited here when he served in the army during World War II and met Edwina there, who he ended up having a daughter with. The capital city is London, where the Simpsons visit (despite a teenage, high-school Homer once claiming that he would never go to England). The London Eye is one of the most visited tourist attractions in the world along with Westminster Abbey, the Tower of London and Buckingham Palace. Nigel Bakerbutcher revealed to the citizens of Springfield that the whole of London is under constant surveillance with CCTV cameras everywhere. While visiting London, Homer's rental car crashes through the gates of Buckingham Palace and into Queen Elizabeth II's carriage. He is imprisoned in the Tower of London, but manages to escape the tower and ends up in Buckingham Palace; where he asks the Queen to find it in her \"jewel-encrusted\" heart to forgive him. She forgives him and lets him return home to America as long as he takes Madonna back with him.",
       "confidence": 0.7,
@@ -20823,7 +20864,7 @@
     },
     {
       "id": "5d9abfad-eb3f-4e9b-8691-c80e6993119a",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "After the train station terrorism incident, Mayor Quimby that everything he said about terrorism was to cause fear, but now he says it's all true. To protect the city from all future attacks, they hired an external consultant from London, England. After Homer and Ned disable all the cameras in Springfield, it is revealed that the antics of Springfield were broadcast as a reality show in Britain, known as The American Oafs, with Queen Elizabeth saying she'll miss Ralph Wiggum, as he reminds her of her own son, Prince Charles, who walks in and tells his mother that his cat's breath smells like cat food.",
       "confidence": 0.7,
@@ -20835,7 +20876,7 @@
     },
     {
       "id": "1ca4b0cf-2af5-4ebf-8c02-69ba6f3b4602",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "Furthermore, it is possible that the country which Abraham Simpson claimed to have come from was England.",
       "confidence": 0.7,
@@ -20847,7 +20888,7 @@
     },
     {
       "id": "33ec29aa-d43e-4f9d-9ee4-c7f61714f4f9",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "6-19",
       "snippet": "In \"Lisa's Wedding\", Hugh Parkfield Lisa's boyfriend takes her to England in order to meet his parents.",
       "confidence": 0.95,
@@ -20859,7 +20900,7 @@
     },
     {
       "id": "584a3a03-2a60-4dfb-8e21-e847127beb2b",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "23-9",
       "snippet": "In \"Holidays of Future Passed\", Maggie Simpson is seen staying at The Benny Hilton where she is reported to be in the late stage of pregnancy. The Beatles seems to have become saints and the cops are replaced with the Daleks.",
       "confidence": 0.55,
@@ -20871,7 +20912,7 @@
     },
     {
       "id": "cb904327-3da9-4289-b098-9357e0e96d1a",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "3-7",
       "snippet": "THOH – \"Treehouse of Horror II\" (mentioned)",
       "confidence": 0.55,
@@ -20883,7 +20924,7 @@
     },
     {
       "id": "e85c78db-c5fa-4248-abf0-3c7e6c90aa08",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "4-11",
       "snippet": "Episode – \"Homer's Triple Bypass\" (Great Britain mentioned)",
       "confidence": 0.55,
@@ -20895,7 +20936,7 @@
     },
     {
       "id": "e2752538-1bfd-4b58-9d3c-12462cf4892d",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "9-5",
       "snippet": "Episode – \"The Cartridge Family\" (mentioned)",
       "confidence": 0.55,
@@ -20907,7 +20948,7 @@
     },
     {
       "id": "7c92daad-cc4a-432e-bdce-ec1663716462",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "11-3",
       "snippet": "Episode – \"Guess Who's Coming to Criticize Dinner?\" (mentioned)",
       "confidence": 0.55,
@@ -20919,7 +20960,7 @@
     },
     {
       "id": "456cfb04-08ae-4eb0-9907-39b37927e142",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "11-12",
       "snippet": "Episode – \"The Mansion Family\" (mentioned)",
       "confidence": 0.55,
@@ -20931,7 +20972,7 @@
     },
     {
       "id": "d56df5dc-4f47-4803-a622-9def1ec86087",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "11-15",
       "snippet": "Episode – \"Missionary: Impossible\" (on TV)",
       "confidence": 0.55,
@@ -20943,7 +20984,7 @@
     },
     {
       "id": "dd85e98b-7d4b-4ef8-b032-7b6dab497cc7",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "14-16",
       "snippet": "Episode – \"'Scuse Me While I Miss the Sky\" (mentioned)",
       "confidence": 0.55,
@@ -20955,7 +20996,7 @@
     },
     {
       "id": "5b02043d-ebe8-49b3-adb1-1f41553db1e3",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "17-18",
       "snippet": "Episode – \"The Wettest Stories Ever Told\"",
       "confidence": 0.55,
@@ -20967,7 +21008,7 @@
     },
     {
       "id": "13d69271-08cd-488f-8a92-5fd124e0848f",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "19-8",
       "snippet": "Episode – \"Funeral for a Fiend\" (Pictures in the projector and mentioned)",
       "confidence": 0.55,
@@ -22587,7 +22628,7 @@
     },
     {
       "id": "405ec86e-95b7-4706-aedf-3aab08f25669",
-      "countryIso2": "ZZ",
+      "countryIso2": "FM",
       "episodeId": "0-0",
       "snippet": "Homer is dropped off on an island in Micronesia (referred to as \"Micro-Asia\" in the episode), where he is a missionary. He attempts to teach the natives of his ways, leading to disastrous results.",
       "confidence": 0.7,
@@ -22599,7 +22640,7 @@
     },
     {
       "id": "741e5c3f-5a80-4259-baab-d286d11a8b39",
-      "countryIso2": "ZZ",
+      "countryIso2": "FM",
       "episodeId": "19-10",
       "snippet": "Episode – \"E. Pluribus Wiggum\" (Mentioned)",
       "confidence": 0.55,
@@ -22755,7 +22796,7 @@
     },
     {
       "id": "5f3b0c20-0d32-4a1c-8078-a310d91dac0f",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "20-14",
       "snippet": "The Simpson family visit Northern Ireland during their trip to the island in \"In the Name of the Grandfather\", visiting the Giant's Causeway.",
       "confidence": 0.95,
@@ -22767,7 +22808,7 @@
     },
     {
       "id": "6b1980b7-cd75-41bc-9b11-f8df79c8535a",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "20-1",
       "snippet": "Episode – \"Sex, Pies, and Idiot Scrapes\"",
       "confidence": 0.55,
@@ -22779,7 +22820,7 @@
     },
     {
       "id": "b8047605-f0ff-43f8-a077-cbd14dd49036",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "20-14",
       "snippet": "Episode – \"In the Name of the Grandfather\"",
       "confidence": 0.55,
@@ -23211,7 +23252,7 @@
     },
     {
       "id": "c97a21f9-72cb-4ee3-8eda-2f7b2e332032",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "Mr. Burns recruited Homer, Frink and Willie for a successful mission to Scotland in pursuit of the Loch Ness Monster.",
       "confidence": 0.7,
@@ -23223,7 +23264,7 @@
     },
     {
       "id": "a229c1e5-32f7-4edc-90f2-53e60c475456",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "Willie and the Simpsons went to Scotland and meet Willie's brother, Angus. Willie competes in a competition there.",
       "confidence": 0.7,
@@ -23235,7 +23276,7 @@
     },
     {
       "id": "c9a68049-ed92-4dd7-8ed8-3d76e3e99d31",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "Scotland might have been the anonymous \"Old Country\" which Abe Simpson claimed to have emigrated from as a child.",
       "confidence": 0.7,
@@ -23247,7 +23288,7 @@
     },
     {
       "id": "df56d989-e28d-4fb0-bdd8-0936fbe10f6c",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "After encountering Willie while stealing grease from Springfield Elementary, Homer and Bart pretended to be exchange students from a fictitious \"North Kilttown\" in Scotland.",
       "confidence": 0.7,
@@ -23259,7 +23300,7 @@
     },
     {
       "id": "934b3935-4917-4ae0-9a09-743ff7216ef9",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "When giving testimony in court, Homer claimed that his memory was \"hazy\". The Blue-Haired Lawyer responded with the question \"Hazy like the moors of Scotland?\", pointing to Willie who'd been wrongly arrested for stealing Homer's car.",
       "confidence": 0.7,
@@ -23271,7 +23312,7 @@
     },
     {
       "id": "c3d146a3-e447-4518-80dc-e7e1360b3fe8",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "When Bart and Lisa become best friends after Milhouse leaves for Capital City with his mother, Willie claims it will not last as brother and sister are natural enemies. Like Englishmen and Scots, or Welshmen and Scots, or Japanese and Scots, or Scots and other Scots. Damn Scots! They ruined Scotland!",
       "confidence": 0.7,
@@ -23283,7 +23324,7 @@
     },
     {
       "id": "3e381142-7195-45b5-9457-425a23737fb9",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "0-0",
       "snippet": "In the level Around the World in 80 Bites Willie climbs to the roof of a big wall and closes the gate to Scotland, yelling \"Screw you!\". Bart gets to the top of the \"Eiffel Tower\" and glides to the wall where he opens the gate.",
       "confidence": 0.7,
@@ -23295,7 +23336,7 @@
     },
     {
       "id": "5d610f16-c93d-4ee8-94a5-7e00b585a4a2",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "4-11",
       "snippet": "Episode – \"Homer's Triple Bypass\" (Great Britain mentioned)",
       "confidence": 0.55,
@@ -23307,7 +23348,7 @@
     },
     {
       "id": "0a8a22a1-0424-46aa-b745-b85414b12a38",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "7-23",
       "snippet": "Episode – \"Much Apu About Nothing\" (Possibly 'The Old Country')",
       "confidence": 0.55,
@@ -23319,7 +23360,7 @@
     },
     {
       "id": "b7fe15ae-4713-4c15-80e6-3d36ebee7fe9",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "10-1",
       "snippet": "Episode – \"Lard of the Dance\" (Mentioned)",
       "confidence": 0.55,
@@ -23331,7 +23372,7 @@
     },
     {
       "id": "8e5a0e04-5b6b-4649-8306-432f7646c521",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "12-7",
       "snippet": "Episode – \"The Great Money Caper\" (Mentioned)",
       "confidence": 0.55,
@@ -23343,7 +23384,7 @@
     },
     {
       "id": "bca083d8-f17b-4b97-aed1-c7122d6172db",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "15-12",
       "snippet": "Episode – \"Milhouse Doesn't Live Here Anymore\" (Mentioned)",
       "confidence": 0.55,
@@ -23355,7 +23396,7 @@
     },
     {
       "id": "85e79016-cedb-4563-88d7-53d822271d06",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "16-1",
       "snippet": "THOH – \"Treehouse of Horror XV\" (mentioned)",
       "confidence": 0.55,
@@ -23775,7 +23816,7 @@
     },
     {
       "id": "27c96f0f-e2e8-4d8b-bfaa-ca6ad4985ca4",
-      "countryIso2": "ZZ",
+      "countryIso2": "SY",
       "episodeId": "0-0",
       "snippet": "Homer complains that Lisa won't allow him to watch FOX, because they own chemical weapon plants in Syria. Also newspaper articles talk about the Syrian Troubles.",
       "confidence": 0.7,
@@ -23787,7 +23828,7 @@
     },
     {
       "id": "ae23027a-996a-4f58-a769-f89e49760913",
-      "countryIso2": "ZZ",
+      "countryIso2": "SY",
       "episodeId": "21-16",
       "snippet": "Episode – \"The Greatest Story Ever D'ohed\"",
       "confidence": 0.55,
@@ -23931,7 +23972,7 @@
     },
     {
       "id": "4a3a52fc-aa70-4b87-9cb3-b2308589b003",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "0-0",
       "snippet": "Tibet is a large region in Asia. Officially, is part of (and is owned by) China. Many people, including Lisa, want to free Tibet. There is a world campaign called the 'Free Tibet' campaign.",
       "confidence": 0.7,
@@ -23943,7 +23984,7 @@
     },
     {
       "id": "93ba50bd-f91a-4da0-96a4-27948e090218",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "0-0",
       "snippet": "When Lisa wins the spelling bee, she shouts “Free Tibet!” The Dalai Lama, the Buddhist leader of Tibet, makes an appearance, in which Mr. Burns forces Homer (disguised as Pie Man) to throw a pie in the Dalai Lama's face.",
       "confidence": 0.7,
@@ -23955,7 +23996,7 @@
     },
     {
       "id": "8db4a695-3071-4092-8488-ac1101367891",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "0-0",
       "snippet": "In 'Goo Goo Gai Pan', when the Simpsons visit China, Madam Wu asks Lisa if she is happy to have an adopted sister. Lisa replies, “Well, I dunno.....I'm considered pretty...smart.” Wu replies, “Well, Tibet was considered pretty independent, but now we know the answer to that.” Wu laughs, but Lisa gets angry.",
       "confidence": 0.7,
@@ -23967,7 +24008,7 @@
     },
     {
       "id": "c44c4e33-62e7-4659-9c48-9347cab4bebf",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "13-6",
       "snippet": "Episode – \"She of Little Faith\" (Mentioned)",
       "confidence": 0.55,
@@ -23979,7 +24020,7 @@
     },
     {
       "id": "3f7444ab-7ff8-42aa-a5a7-ac1c87b0d5d2",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "14-18",
       "snippet": "Episode – \"Dude, Where's My Ranch?\" (Mentioned)",
       "confidence": 0.55,
@@ -23991,7 +24032,7 @@
     },
     {
       "id": "30a40113-8913-42ae-a4ff-545d0dc74492",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "14-12",
       "snippet": "Episode – \"I'm Spelling as Fast as I Can\"",
       "confidence": 0.55,
@@ -24003,7 +24044,7 @@
     },
     {
       "id": "e54fb76a-60f2-40aa-b33a-0839355997ff",
-      "countryIso2": "ZZ",
+      "countryIso2": "CN",
       "episodeId": "16-14",
       "snippet": "Episode – \"The Seven-Beer Snitch\" (Mentioned)",
       "confidence": 0.55,
@@ -24411,7 +24452,7 @@
     },
     {
       "id": "e21f527e-a997-4f40-95fc-30b94aac6673",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "4-7",
       "snippet": "Tom Jones is a famous Welsh singer and appeared as himself in the episode \"Marge Gets a Job\", where he is kidnapped by Waylon Smithers and forced to sing in front of Homer and Marge. His song 'Sex Bomb' also appeared in the episode \"C.E. D'oh\".",
       "confidence": 0.55,
@@ -24423,7 +24464,7 @@
     },
     {
       "id": "bfc0d1a3-eb0e-481b-80a0-e51cc261c66a",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "4-11",
       "snippet": "Episode – \"Homer's Triple Bypass\" (Great Britain mentioned)",
       "confidence": 0.55,
@@ -24435,7 +24476,7 @@
     },
     {
       "id": "15f7fa21-9f5b-4419-91bb-13cfdc187790",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "15-12",
       "snippet": "Episode – \"Milhouse Doesn't Live Here Anymore\" (Mentioned)",
       "confidence": 0.55,
@@ -24447,7 +24488,7 @@
     },
     {
       "id": "3a539987-ec4b-45de-852b-4a303231dd96",
-      "countryIso2": "ZZ",
+      "countryIso2": "GB",
       "episodeId": "17-10",
       "snippet": "Episode – \"Homer's Paternity Coot\" (Mentioned)",
       "confidence": 0.55,
@@ -24459,7 +24500,7 @@
     },
     {
       "id": "6096436b-6d9c-4f7e-a92b-c0dbb7f619db",
-      "countryIso2": "ZZ",
+      "countryIso2": "RS",
       "episodeId": "0-0",
       "snippet": "Scene where Principal Skinner shouts at Bart, \"Bart Simpson, that is a reconstructed Yugoslavian engine. There is no longer a Yugoslavia!\"",
       "confidence": 0.7,
@@ -24471,7 +24512,7 @@
     },
     {
       "id": "ccbdb610-5cdd-47b9-9663-d7a764d66d39",
-      "countryIso2": "ZZ",
+      "countryIso2": "RS",
       "episodeId": "0-0",
       "snippet": "Principal Skinner shouts \"There isn't even a Yugoslavia anymore!\" to Bart after he sees the engine of his Yugo (a car brand produced in the former Yugoslavia, famous for being very cheap) slowly floating up and out of his car, attached to numerous balloons in the episode.",
       "confidence": 0.7,
@@ -24517,6 +24558,18 @@
       "isImplied": false,
       "publishedAt": "2026-03-05T14:16:38.061Z",
       "normalizedSnippetHash": "1733fbd90b4c670c043dadfa1d24fd9bca9962f00fcf6691ad8918b2d8a2b181"
+    },
+    {
+      "id": "test-region-infer-us-tx",
+      "countryIso2": "US",
+      "episodeId": "10-4",
+      "snippet": "A one-off joke mentions Austin, Texas traffic.",
+      "confidence": 0.88,
+      "sourceUrl": "https://example.com/test-region-infer",
+      "sourceType": "REFERENCE_LINK",
+      "isImplied": false,
+      "publishedAt": "2026-03-05T14:34:21.070Z",
+      "normalizedSnippetHash": "5ac28ac6ccfae49b07b1bc6ac56bd7ea2971723d6ffe4c9c82b2bf5c7d507d27"
     }
   ],
   "runs": [
@@ -24636,6 +24689,15 @@
       "mentionsExtracted": 0,
       "mentionsPublished": 0,
       "completedAt": "2026-03-05T13:57:31.064Z"
+    },
+    {
+      "id": "3bc15ba5-aa19-47a9-96ee-c984457d26f2",
+      "startedAt": "2026-03-05T14:27:28.043Z",
+      "status": "COMPLETED",
+      "pagesScanned": 145,
+      "mentionsExtracted": 913,
+      "mentionsPublished": 22,
+      "completedAt": "2026-03-05T14:27:38.024Z"
     }
   ]
 }

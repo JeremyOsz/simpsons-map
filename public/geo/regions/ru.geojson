@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "PRI",
+        "name": "Primorsky Krai"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              129.8,
+              43.3
+            ],
+            [
+              136.2,
+              43.3
+            ],
+            [
+              136.2,
+              46.7
+            ],
+            [
+              129.8,
+              46.7
+            ],
+            [
+              129.8,
+              43.3
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NVS",
+        "name": "Novosibirsk Oblast"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78,
+              52.8
+            ],
+            [
+              84,
+              52.8
+            ],
+            [
+              84,
+              57.2
+            ],
+            [
+              78,
+              57.2
+            ],
+            [
+              78,
+              52.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SVE",
+        "name": "Sverdlovsk Oblast"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              59,
+              56.5
+            ],
+            [
+              64,
+              56.5
+            ],
+            [
+              64,
+              60.9
+            ],
+            [
+              59,
+              60.9
+            ],
+            [
+              59,
+              56.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "TAT",
+        "name": "Tatarstan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.7,
+              54.4
+            ],
+            [
+              52.1,
+              54.4
+            ],
+            [
+              52.1,
+              56.2
+            ],
+            [
+              49.7,
+              56.2
+            ],
+            [
+              49.7,
+              54.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "KDA",
+        "name": "Krasnodar Krai"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4,
+              44
+            ],
+            [
+              41.4,
+              44
+            ],
+            [
+              41.4,
+              46.4
+            ],
+            [
+              37.4,
+              46.4
+            ],
+            [
+              37.4,
+              44
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "ROS",
+        "name": "Rostov Oblast"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              39.7,
+              46.5
+            ],
+            [
+              43.3,
+              46.5
+            ],
+            [
+              43.3,
+              48.5
+            ],
+            [
+              39.7,
+              48.5
+            ],
+            [
+              39.7,
+              46.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "MOW",
+        "name": "Moscow"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.05,
+              55.4
+            ],
+            [
+              38.15,
+              55.4
+            ],
+            [
+              38.15,
+              56.2
+            ],
+            [
+              37.05,
+              56.2
+            ],
+            [
+              37.05,
+              55.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SPE",
+        "name": "Saint Petersburg"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.85,
+              59.6
+            ],
+            [
+              30.75,
+              59.6
+            ],
+            [
+              30.75,
+              60.2
+            ],
+            [
+              29.85,
+              60.2
+            ],
+            [
+              29.85,
+              59.6
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

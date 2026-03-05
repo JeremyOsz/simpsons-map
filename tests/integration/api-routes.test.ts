@@ -70,6 +70,30 @@ describe("API routes", () => {
     expect(body.data.items.every((item: { regionCode?: string }) => item.regionCode === "IL")).toBe(true);
   });
 
+  it("infers region code when mention lacks explicit regionCode", async () => {
+    const store = getDataStore();
+    const snippet = "A one-off joke mentions Austin, Texas traffic.";
+    await store.upsertMentions([
+      {
+        id: "test-region-infer-us-tx",
+        countryIso2: "US",
+        episodeId: "10-4",
+        snippet,
+        confidence: 0.88,
+        sourceUrl: "https://example.com/test-region-infer",
+        sourceType: "REFERENCE_LINK",
+        isImplied: false,
+        publishedAt: new Date().toISOString(),
+        normalizedSnippetHash: hashSnippet(snippet)
+      }
+    ]);
+
+    const response = await getMentions(makeRequest("http://localhost/api/mentions?country=US&region=TX&limit=50"));
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    expect(body.data.items.some((item: { id: string; regionCode?: string }) => item.id === "test-region-infer-us-tx" && item.regionCode === "TX")).toBe(true);
+  });
+
   it("validates invalid query params", async () => {
     const response = await getMentions(makeRequest("http://localhost/api/mentions?limit=5000"));
     expect(response.status).toBe(400);

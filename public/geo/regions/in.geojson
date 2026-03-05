@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "RJ",
+        "name": "Rajasthan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              70.5,
+              24.4
+            ],
+            [
+              75.5,
+              24.4
+            ],
+            [
+              75.5,
+              29.2
+            ],
+            [
+              70.5,
+              29.2
+            ],
+            [
+              70.5,
+              24.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "GJ",
+        "name": "Gujarat"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              69.8,
+              20.5
+            ],
+            [
+              73.8,
+              20.5
+            ],
+            [
+              73.8,
+              24.5
+            ],
+            [
+              69.8,
+              24.5
+            ],
+            [
+              69.8,
+              20.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "MH",
+        "name": "Maharashtra"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.8,
+              17.2
+            ],
+            [
+              78.2,
+              17.2
+            ],
+            [
+              78.2,
+              21.4
+            ],
+            [
+              72.8,
+              21.4
+            ],
+            [
+              72.8,
+              17.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "KA",
+        "name": "Karnataka"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.9,
+              12.7
+            ],
+            [
+              78.1,
+              12.7
+            ],
+            [
+              78.1,
+              16.9
+            ],
+            [
+              73.9,
+              16.9
+            ],
+            [
+              73.9,
+              12.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "TN",
+        "name": "Tamil Nadu"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.9,
+              9.3
+            ],
+            [
+              80.5,
+              9.3
+            ],
+            [
+              80.5,
+              12.5
+            ],
+            [
+              76.9,
+              12.5
+            ],
+            [
+              76.9,
+              9.3
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "UP",
+        "name": "Uttar Pradesh"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.6,
+              25.1
+            ],
+            [
+              84,
+              25.1
+            ],
+            [
+              84,
+              28.9
+            ],
+            [
+              77.6,
+              28.9
+            ],
+            [
+              77.6,
+              25.1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "WB",
+        "name": "West Bengal"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.5,
+              21.2
+            ],
+            [
+              89.5,
+              21.2
+            ],
+            [
+              89.5,
+              24.8
+            ],
+            [
+              86.5,
+              24.8
+            ],
+            [
+              86.5,
+              21.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "DL",
+        "name": "Delhi"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77,
+              28.42
+            ],
+            [
+              77.4,
+              28.42
+            ],
+            [
+              77.4,
+              28.78
+            ],
+            [
+              77,
+              28.78
+            ],
+            [
+              77,
+              28.42
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

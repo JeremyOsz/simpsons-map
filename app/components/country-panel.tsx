@@ -212,22 +212,22 @@ export function CountryPanel({
                   <ul className="grid gap-3">
                     {group.mentions.map((mention) => (
                       <li key={mention.id} className="rounded-lg border border-slate-200 bg-slate-50 p-2.5">
-                        <div className="mb-2 flex items-center justify-end">
-                          <Badge className="text-[10px]">{Math.round(mention.confidence * 100)}%</Badge>
-                        </div>
                         <p className="mb-2 text-sm leading-relaxed text-slate-700">{renderHighlightedSnippet(mention.snippet, searchQuery)}</p>
-                        <div className="flex flex-wrap items-center gap-3">
-                          <a className="text-xs font-bold text-sky-700 hover:underline" href={resolveSourceUrl(mention)} target="_blank" rel="noreferrer">
-                            Source
-                          </a>
-                          <a
-                            className="text-xs font-bold text-fuchsia-700 hover:underline"
-                            href={`https://frinkiac.com/?q=${encodeURIComponent(mention.snippet)}`}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Frinkiac
-                          </a>
+                        <div className="flex items-end justify-between gap-3">
+                          <div className="flex flex-wrap items-center gap-3">
+                            <a className="text-xs font-bold text-sky-700 hover:underline" href={resolveSourceUrl(mention)} target="_blank" rel="noreferrer">
+                              Source
+                            </a>
+                            <a
+                              className="text-xs font-bold text-fuchsia-700 hover:underline"
+                              href={`https://frinkiac.com/?q=${encodeURIComponent(mention.snippet)}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Frinkiac
+                            </a>
+                          </div>
+                          <Badge className="shrink-0 text-[10px]">{Math.round(mention.confidence * 100)}%</Badge>
                         </div>
                       </li>
                     ))}

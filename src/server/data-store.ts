@@ -3,11 +3,11 @@ import { confidenceBucket } from "@/lib/confidence";
 import type { Country, Episode, IngestionRun, Mention, MentionFilters, Region, UnknownPlace } from "@/types/domain";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { countryDisplayNameFromIso, isRecognizedIso2, normalizeCountryTitle } from "@/lib/countries";
+import { countryDisplayNameFromIso, inferIso2FromTitle, isRecognizedIso2, normalizeCountryTitle } from "@/lib/countries";
 import { isRegionEnabledCountry } from "@/config/region-allowlist";
 import { parseEpisodeReference } from "@/lib/episode";
 import { getEpisodeTitleLookup } from "@/lib/episode-lookup";
-import { getRegionDisplayName } from "@/lib/region-mapper";
+import { getRegionDisplayName, inferRegionCode } from "@/lib/region-mapper";
 
 interface PersistedState {
   mentions: Mention[];
@@ -27,7 +27,7 @@ function loadPersistedState(): PersistedState {
 
   try {
     const parsed = JSON.parse(readFileSync(STORE_FILE, "utf8")) as PersistedState;
-    const persistedMentions = Array.isArray(parsed.mentions) ? parsed.mentions : [];
+    const persistedMentions = (Array.isArray(parsed.mentions) ? parsed.mentions : []).map(normalizeMentionCountryIso2);
     const mergedMentions = [...sampleMentions];
 
     for (const mention of persistedMentions) {
@@ -167,7 +167,7 @@ class InMemoryDataStore implements DataStore {
 
     for (const mention of this.mentions) {
       if (mention.countryIso2 !== normalizedIso) continue;
-      const code = (mention.regionCode ?? "UNKNOWN").toUpperCase();
+      const code = this.getEffectiveRegionCode(mention);
       mentionCounts.set(code, (mentionCounts.get(code) ?? 0) + 1);
     }
 
@@ -198,7 +198,11 @@ class InMemoryDataStore implements DataStore {
 
     const filtered = this.filterMentions(filters).sort((a, b) => a.id.localeCompare(b.id));
     const startIndex = cursor ? filtered.findIndex((m) => m.id === cursor) + 1 : 0;
-    const items = filtered.slice(startIndex, startIndex + limit);
+    const items = filtered.slice(startIndex, startIndex + limit).map((mention) => {
+      const effectiveRegionCode = this.getEffectiveRegionCode(mention);
+      if (mention.regionCode?.toUpperCase() === effectiveRegionCode) return mention;
+      return { ...mention, regionCode: effectiveRegionCode };
+    });
     const nextCursor = startIndex + limit < filtered.length ? items.at(-1)?.id : undefined;
 
     return { items, nextCursor };
@@ -277,16 +281,17 @@ class InMemoryDataStore implements DataStore {
     let inserted = 0;
 
     for (const mention of mentions) {
+      const normalizedMention = normalizeMentionCountryIso2(mention);
       const exists = this.mentions.some(
         (candidate) =>
-          candidate.countryIso2 === mention.countryIso2 &&
-          candidate.episodeId === mention.episodeId &&
-          candidate.normalizedSnippetHash === mention.normalizedSnippetHash &&
-          candidate.sourceUrl === mention.sourceUrl
+          candidate.countryIso2 === normalizedMention.countryIso2 &&
+          candidate.episodeId === normalizedMention.episodeId &&
+          candidate.normalizedSnippetHash === normalizedMention.normalizedSnippetHash &&
+          candidate.sourceUrl === normalizedMention.sourceUrl
       );
 
       if (!exists) {
-        this.mentions.push(mention);
+        this.mentions.push(normalizedMention);
         inserted += 1;
       }
     }
@@ -331,7 +336,7 @@ class InMemoryDataStore implements DataStore {
   private filterMentions(filters: Pick<MentionFilters, "country" | "region" | "seasonFrom" | "seasonTo" | "q" | "confidence" | "sourceType">): Mention[] {
     return this.mentions.filter((mention) => {
       if (filters.country && mention.countryIso2 !== filters.country.toUpperCase()) return false;
-      if (filters.region && mention.regionCode !== filters.region.toUpperCase()) return false;
+      if (filters.region && this.getEffectiveRegionCode(mention) !== filters.region.toUpperCase()) return false;
       if (filters.sourceType && mention.sourceType !== filters.sourceType) return false;
       if (filters.confidence && confidenceBucket(mention.confidence) !== filters.confidence) return false;
       if (filters.q) {
@@ -357,6 +362,18 @@ class InMemoryDataStore implements DataStore {
 
       return true;
     });
+  }
+
+  private getEffectiveRegionCode(mention: Mention): string {
+    if (mention.regionCode && mention.regionCode.trim().length > 0) {
+      return mention.regionCode.toUpperCase();
+    }
+
+    if (!isRegionEnabledCountry(mention.countryIso2)) {
+      return "UNKNOWN";
+    }
+
+    return inferRegionCode(mention.countryIso2, mention.snippet) ?? "UNKNOWN";
   }
 
   private recomputeCountryCounts(): void {
@@ -446,6 +463,16 @@ function extractPlaceNameFromSourceUrl(sourceUrl: string): string | undefined {
   } catch {
     return undefined;
   }
+}
+
+function normalizeMentionCountryIso2(mention: Mention): Mention {
+  const currentIso2 = mention.countryIso2.toUpperCase();
+  if (isRecognizedIso2(currentIso2)) return mention;
+  const placeName = extractPlaceNameFromSourceUrl(mention.sourceUrl);
+  if (!placeName) return mention;
+  const inferred = inferIso2FromTitle(placeName);
+  if (!inferred) return mention;
+  return { ...mention, countryIso2: inferred.toUpperCase() };
 }
 
 export function getDataStore(): DataStore {

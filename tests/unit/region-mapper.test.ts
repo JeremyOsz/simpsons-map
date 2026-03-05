@@ -14,6 +14,13 @@ describe("inferRegionCode", () => {
     expect(inferRegionCode("AU", "Springfield somehow lands in Sydney.")).toBe("NSW");
   });
 
+  it("maps India, China, Brazil, and Russia administrative regions", () => {
+    expect(inferRegionCode("IN", "A detour through Mumbai, Maharashtra.")).toBe("MH");
+    expect(inferRegionCode("CN", "A joke lands in Shenzhen, Guangdong.")).toBe("GD");
+    expect(inferRegionCode("BR", "Sao Paulo gets a shoutout.")).toBe("SP");
+    expect(inferRegionCode("RU", "A scene near Moscow.")).toBe("MOW");
+  });
+
   it("falls back to UNKNOWN for unmapped mention", () => {
     expect(inferRegionCode("US", "A random US reference.")).toBe("UNKNOWN");
   });

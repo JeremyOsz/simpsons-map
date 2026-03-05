@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SD",
+        "name": "Shandong"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.3,
+              34.3
+            ],
+            [
+              120.7,
+              34.3
+            ],
+            [
+              120.7,
+              37.7
+            ],
+            [
+              116.3,
+              37.7
+            ],
+            [
+              116.3,
+              34.3
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "HB",
+        "name": "Hubei"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              110.4,
+              29.1
+            ],
+            [
+              114.6,
+              29.1
+            ],
+            [
+              114.6,
+              32.7
+            ],
+            [
+              110.4,
+              32.7
+            ],
+            [
+              110.4,
+              29.1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SC",
+        "name": "Sichuan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.3,
+              27.2
+            ],
+            [
+              106.7,
+              27.2
+            ],
+            [
+              106.7,
+              32.8
+            ],
+            [
+              100.3,
+              32.8
+            ],
+            [
+              100.3,
+              27.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "GD",
+        "name": "Guangdong"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              111.2,
+              21.5
+            ],
+            [
+              115.8,
+              21.5
+            ],
+            [
+              115.8,
+              25.1
+            ],
+            [
+              111.2,
+              25.1
+            ],
+            [
+              111.2,
+              21.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "JS",
+        "name": "Jiangsu"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              117.2,
+              31.4
+            ],
+            [
+              120.8,
+              31.4
+            ],
+            [
+              120.8,
+              34.4
+            ],
+            [
+              117.2,
+              34.4
+            ],
+            [
+              117.2,
+              31.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "ZJ",
+        "name": "Zhejiang"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              119.2,
+              27.9
+            ],
+            [
+              122.2,
+              27.9
+            ],
+            [
+              122.2,
+              30.5
+            ],
+            [
+              119.2,
+              30.5
+            ],
+            [
+              119.2,
+              27.9
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "BJ",
+        "name": "Beijing"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              116.1,
+              39.65
+            ],
+            [
+              116.7,
+              39.65
+            ],
+            [
+              116.7,
+              40.15
+            ],
+            [
+              116.1,
+              40.15
+            ],
+            [
+              116.1,
+              39.65
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SH",
+        "name": "Shanghai"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              121.25,
+              31
+            ],
+            [
+              121.75,
+              31
+            ],
+            [
+              121.75,
+              31.4
+            ],
+            [
+              121.25,
+              31.4
+            ],
+            [
+              121.25,
+              31
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
