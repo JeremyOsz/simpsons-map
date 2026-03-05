@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cloud-1: #7fd4ff;
+  --bg-cloud-2: #d9f3ff;
+  --simpson-yellow: #ffd90f;
+  --simpson-donut: #ff9f1a;
+  --simpson-donut-icing: #ff5aa5;
+}
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+
+  body {
+    @apply min-h-screen text-slate-900 antialiased;
+    font-family: "Chalkboard SE", "Marker Felt", "Comic Sans MS", system-ui, sans-serif;
+    background:
+      radial-gradient(80px 36px at 14% 11%, #ffffffcc 0 70%, transparent 71%),
+      radial-gradient(120px 45px at 20% 13%, #ffffffcc 0 70%, transparent 71%),
+      radial-gradient(105px 40px at 74% 8%, #ffffffcc 0 70%, transparent 71%),
+      radial-gradient(130px 52px at 80% 10%, #ffffffcc 0 70%, transparent 71%),
+      linear-gradient(180deg, var(--bg-cloud-1), var(--bg-cloud-2));
+  }
+}
+
+@layer utilities {
+  .donut-ring {
+    box-shadow:
+      0 0 0 3px #111827,
+      0 0 0 8px var(--simpson-donut),
+      0 0 0 12px #111827;
+  }
+
+  .simpson-header {
+    background:
+      radial-gradient(circle at 8% 14%, #fff9 0 7%, transparent 8%),
+      radial-gradient(circle at 86% 24%, #fff9 0 6%, transparent 7%),
+      linear-gradient(120deg, #ffe96b, var(--simpson-yellow));
+  }
+
+  .donut-sprinkle-bg {
+    background:
+      radial-gradient(circle at 85% 12%, #ff5aa588 0 8px, transparent 9px),
+      radial-gradient(circle at 73% 20%, #55d8ff88 0 8px, transparent 9px),
+      radial-gradient(circle at 92% 28%, #ffd90f99 0 7px, transparent 8px);
+  }
+}

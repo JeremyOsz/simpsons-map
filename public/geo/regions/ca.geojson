@@ -1,0 +1,447 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "BC",
+        "name": "British Columbia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -129.3,
+              48.9
+            ],
+            [
+              -119.7,
+              48.9
+            ],
+            [
+              -119.7,
+              58.1
+            ],
+            [
+              -129.3,
+              58.1
+            ],
+            [
+              -129.3,
+              48.9
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "AB",
+        "name": "Alberta"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.5,
+              50.4
+            ],
+            [
+              -112.1,
+              50.4
+            ],
+            [
+              -112.1,
+              59.2
+            ],
+            [
+              -117.5,
+              59.2
+            ],
+            [
+              -117.5,
+              50.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SK",
+        "name": "Saskatchewan"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -108.8,
+              50.5
+            ],
+            [
+              -103.2,
+              50.5
+            ],
+            [
+              -103.2,
+              59.1
+            ],
+            [
+              -108.8,
+              59.1
+            ],
+            [
+              -108.8,
+              50.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "MB",
+        "name": "Manitoba"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -99.5,
+              50.2
+            ],
+            [
+              -94.5,
+              50.2
+            ],
+            [
+              -94.5,
+              59.4
+            ],
+            [
+              -99.5,
+              59.4
+            ],
+            [
+              -99.5,
+              50.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "ON",
+        "name": "Ontario"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.8,
+              42.3
+            ],
+            [
+              -78.2,
+              42.3
+            ],
+            [
+              -78.2,
+              56.7
+            ],
+            [
+              -91.8,
+              56.7
+            ],
+            [
+              -91.8,
+              42.3
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "QC",
+        "name": "Quebec"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.2,
+              45.4
+            ],
+            [
+              -64.8,
+              45.4
+            ],
+            [
+              -64.8,
+              58.6
+            ],
+            [
+              -77.2,
+              58.6
+            ],
+            [
+              -77.2,
+              45.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NB",
+        "name": "New Brunswick"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.6,
+              45.9
+            ],
+            [
+              -65.6,
+              45.9
+            ],
+            [
+              -65.6,
+              47.7
+            ],
+            [
+              -67.6,
+              47.7
+            ],
+            [
+              -67.6,
+              45.9
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NS",
+        "name": "Nova Scotia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.7,
+              44.65
+            ],
+            [
+              -62.3,
+              44.65
+            ],
+            [
+              -62.3,
+              45.75
+            ],
+            [
+              -64.7,
+              45.75
+            ],
+            [
+              -64.7,
+              44.65
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "PE",
+        "name": "Prince Edward Island"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -63.6,
+              46.1
+            ],
+            [
+              -62.8,
+              46.1
+            ],
+            [
+              -62.8,
+              46.5
+            ],
+            [
+              -63.6,
+              46.5
+            ],
+            [
+              -63.6,
+              46.1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NL",
+        "name": "Newfoundland and Labrador"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.5,
+              49
+            ],
+            [
+              -54.5,
+              49
+            ],
+            [
+              -54.5,
+              57
+            ],
+            [
+              -61.5,
+              57
+            ],
+            [
+              -61.5,
+              49
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "YT",
+        "name": "Yukon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -139.5,
+              59.4
+            ],
+            [
+              -132.5,
+              59.4
+            ],
+            [
+              -132.5,
+              68.6
+            ],
+            [
+              -139.5,
+              68.6
+            ],
+            [
+              -139.5,
+              59.4
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NT",
+        "name": "Northwest Territories"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -127.5,
+              60.7
+            ],
+            [
+              -114.5,
+              60.7
+            ],
+            [
+              -114.5,
+              70.3
+            ],
+            [
+              -127.5,
+              70.3
+            ],
+            [
+              -127.5,
+              60.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NU",
+        "name": "Nunavut"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -104.5,
+              60.8
+            ],
+            [
+              -79.5,
+              60.8
+            ],
+            [
+              -79.5,
+              73.2
+            ],
+            [
+              -104.5,
+              73.2
+            ],
+            [
+              -104.5,
+              60.8
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "iso2": "US", "name": "United States", "fill": "#e5e7eb" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-125, 24], [-66, 24], [-66, 49], [-125, 49], [-125, 24]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "iso2": "CA", "name": "Canada", "fill": "#e5e7eb" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-141, 49], [-52, 49], [-52, 70], [-141, 70], [-141, 49]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "iso2": "GB", "name": "United Kingdom", "fill": "#e5e7eb" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-8, 49], [2, 49], [2, 59], [-8, 59], [-8, 49]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "iso2": "JP", "name": "Japan", "fill": "#e5e7eb" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[129, 31], [146, 31], [146, 45], [129, 45], [129, 31]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "iso2": "AU", "name": "Australia", "fill": "#e5e7eb" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[113, -44], [154, -44], [154, -10], [113, -10], [113, -44]]]
+      }
+    }
+  ]
+}

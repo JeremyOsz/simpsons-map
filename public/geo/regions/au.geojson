@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "WA",
+        "name": "Western Australia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              112.2,
+              -35.8
+            ],
+            [
+              129.8,
+              -35.8
+            ],
+            [
+              129.8,
+              -14.2
+            ],
+            [
+              112.2,
+              -14.2
+            ],
+            [
+              112.2,
+              -35.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NT",
+        "name": "Northern Territory"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.2,
+              -26.6
+            ],
+            [
+              137.8,
+              -26.6
+            ],
+            [
+              137.8,
+              -11.4
+            ],
+            [
+              128.2,
+              -11.4
+            ],
+            [
+              128.2,
+              -26.6
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "SA",
+        "name": "South Australia"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              128.8,
+              -38.3
+            ],
+            [
+              141.2,
+              -38.3
+            ],
+            [
+              141.2,
+              -24.7
+            ],
+            [
+              128.8,
+              -24.7
+            ],
+            [
+              128.8,
+              -38.3
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "QLD",
+        "name": "Queensland"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              139,
+              -28.9
+            ],
+            [
+              151,
+              -28.9
+            ],
+            [
+              151,
+              -13.1
+            ],
+            [
+              139,
+              -13.1
+            ],
+            [
+              139,
+              -28.9
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NSW",
+        "name": "New South Wales"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              142.1,
+              -36
+            ],
+            [
+              151.9,
+              -36
+            ],
+            [
+              151.9,
+              -28
+            ],
+            [
+              142.1,
+              -28
+            ],
+            [
+              142.1,
+              -36
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "VIC",
+        "name": "Victoria"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              141.9,
+              -38.8
+            ],
+            [
+              146.7,
+              -38.8
+            ],
+            [
+              146.7,
+              -35.6
+            ],
+            [
+              141.9,
+              -35.6
+            ],
+            [
+              141.9,
+              -38.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "TAS",
+        "name": "Tasmania"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              145.2,
+              -43.2
+            ],
+            [
+              148.4,
+              -43.2
+            ],
+            [
+              148.4,
+              -40.8
+            ],
+            [
+              145.2,
+              -40.8
+            ],
+            [
+              145.2,
+              -43.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "ACT",
+        "name": "Australian Capital Territory"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              148.92,
+              -35.54
+            ],
+            [
+              149.28,
+              -35.54
+            ],
+            [
+              149.28,
+              -35.26
+            ],
+            [
+              148.92,
+              -35.26
+            ],
+            [
+              148.92,
+              -35.54
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
