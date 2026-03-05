@@ -348,8 +348,14 @@ class InMemoryDataStore implements DataStore {
           const season = Number(episodeQuery[1]);
           const episodeNumber = Number(episodeQuery[2]);
           if (episode.season !== season || episode.episodeNumber !== episodeNumber) return false;
-        } else if (!mention.snippet.toLowerCase().includes(q)) {
-          return false;
+        } else {
+          const matchesSnippet = mention.snippet.toLowerCase().includes(q);
+          const matchesCountryIso = mention.countryIso2.toLowerCase().includes(q);
+          const matchesCountryName = countryDisplayNameFromIso(mention.countryIso2).toLowerCase().includes(q);
+
+          if (!matchesSnippet && !matchesCountryIso && !matchesCountryName) {
+            return false;
+          }
         }
       }
 

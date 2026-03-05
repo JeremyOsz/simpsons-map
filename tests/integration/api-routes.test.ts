@@ -70,6 +70,31 @@ describe("API routes", () => {
     expect(body.data.items.every((item: { regionCode?: string }) => item.regionCode === "IL")).toBe(true);
   });
 
+  it("keeps country mentions when query matches country name but not snippet text", async () => {
+    const store = getDataStore();
+    const snippet = "Springfield gets another international airport terminal.";
+    await store.upsertMentions([
+      {
+        id: "test-country-name-query-mentions",
+        countryIso2: "MK",
+        episodeId: "10-5",
+        snippet,
+        confidence: 0.91,
+        sourceUrl: "https://example.com/test-country-query",
+        sourceType: "REFERENCE_LINK",
+        isImplied: false,
+        publishedAt: new Date().toISOString(),
+        normalizedSnippetHash: hashSnippet(snippet)
+      }
+    ]);
+
+    const response = await getMentions(makeRequest("http://localhost/api/mentions?country=MK&q=north&limit=100"));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data.items.some((item: { id: string }) => item.id === "test-country-name-query-mentions")).toBe(true);
+  });
+
   it("infers region code when mention lacks explicit regionCode", async () => {
     const store = getDataStore();
     const snippet = "A one-off joke mentions Austin, Texas traffic.";

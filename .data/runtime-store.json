@@ -24570,6 +24570,30 @@
       "isImplied": false,
       "publishedAt": "2026-03-05T14:34:21.070Z",
       "normalizedSnippetHash": "5ac28ac6ccfae49b07b1bc6ac56bd7ea2971723d6ffe4c9c82b2bf5c7d507d27"
+    },
+    {
+      "id": "test-country-name-query-mentions",
+      "countryIso2": "US",
+      "episodeId": "10-5",
+      "snippet": "Springfield gets another international airport terminal.",
+      "confidence": 0.91,
+      "sourceUrl": "https://example.com/test-country-query",
+      "sourceType": "REFERENCE_LINK",
+      "isImplied": false,
+      "publishedAt": "2026-03-05T15:25:32.784Z",
+      "normalizedSnippetHash": "afbf62e0d8c1bb05999f9e347e7c0fbcf8ec5999df542e99462b40a13b4d1a29"
+    },
+    {
+      "id": "test-country-name-query-mentions",
+      "countryIso2": "MK",
+      "episodeId": "10-5",
+      "snippet": "Springfield gets another international airport terminal.",
+      "confidence": 0.91,
+      "sourceUrl": "https://example.com/test-country-query",
+      "sourceType": "REFERENCE_LINK",
+      "isImplied": false,
+      "publishedAt": "2026-03-05T15:26:18.539Z",
+      "normalizedSnippetHash": "afbf62e0d8c1bb05999f9e347e7c0fbcf8ec5999df542e99462b40a13b4d1a29"
     }
   ],
   "runs": [
