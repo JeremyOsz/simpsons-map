@@ -2,13 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Globe2, Search } from "lucide-react";
+import { Funnel, Globe2, Search } from "lucide-react";
 import { MapCanvas } from "@app/components/map-canvas";
 import { CountryPanel } from "@app/components/country-panel";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogOverlay, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import type { Country, Mention, Region, UnknownPlace } from "@/types/domain";
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -31,6 +34,8 @@ export default function HomePage() {
   const [debugLowConfidenceOnly, setDebugLowConfidenceOnly] = useState(false);
   const [debugUnknownEpisodeOnly, setDebugUnknownEpisodeOnly] = useState(false);
   const [debugReferenceOnly, setDebugReferenceOnly] = useState(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   const countriesQueryString = useMemo(() => {
     const params = new URLSearchParams({
@@ -62,6 +67,13 @@ export default function HomePage() {
 
   useEffect(() => {
     setSelectedRegionCode(undefined);
+  }, [selectedIso2]);
+
+  useEffect(() => {
+    if (!selectedIso2 || typeof window === "undefined") return;
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setIsDetailsOpen(true);
+    }
   }, [selectedIso2]);
 
   useEffect(() => {
@@ -142,7 +154,53 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="md:hidden">
+        <CardContent className="space-y-3 p-4">
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              variant="outline"
+              className="h-11 text-sm font-black"
+              onClick={() => {
+                setIsDetailsOpen(false);
+                setIsFiltersOpen(true);
+              }}
+            >
+              <Funnel className="mr-2 h-4 w-4" />
+              Filters
+            </Button>
+            <Button
+              variant="outline"
+              className="h-11 text-sm font-black"
+              onClick={() => {
+                setIsFiltersOpen(false);
+                setIsDetailsOpen(true);
+              }}
+              disabled={!selectedCountry}
+            >
+              {selectedCountry ? selectedCountry.name : "Country details"}
+            </Button>
+          </div>
+          <div className="space-y-1">
+            <Label>View</Label>
+            <div className="inline-flex rounded-xl border-2 border-simpson-ink bg-white p-1 shadow-cartoon">
+              <button
+                className={`rounded-lg px-3 py-1.5 text-sm font-black ${viewMode === "map" ? "bg-sky-300" : "bg-transparent"}`}
+                onClick={() => setViewMode("map")}
+              >
+                Map
+              </button>
+              <button
+                className={`rounded-lg px-3 py-1.5 text-sm font-black ${viewMode === "list" ? "bg-sky-300" : "bg-transparent"}`}
+                onClick={() => setViewMode("list")}
+              >
+                List
+              </button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="hidden md:block">
         <CardContent className="grid gap-3 p-4 md:grid-cols-[1.4fr_repeat(4,minmax(0,1fr))]">
           <div className="space-y-1">
             <Label htmlFor="search">Search</Label>
@@ -415,20 +473,116 @@ export default function HomePage() {
           )}
         </div>
 
-        <CountryPanel
-          country={selectedCountry}
-          mentions={mentionsQuery.data?.data.items ?? []}
-          regions={regionsQuery.data?.data ?? []}
-          activeRegionCode={selectedRegionCode}
-          showRegions={showRegions}
-          isMentionsLoading={isMentionsLoading}
-          isMentionsFetching={isMentionsRefreshing}
-          isRegionsLoading={isRegionsLoading}
-          onToggleRegions={() => setShowRegions((value) => !value)}
-          onRegionSelect={setSelectedRegionCode}
-          searchQuery={search}
-        />
+        <div className="hidden md:block">
+          <CountryPanel
+            country={selectedCountry}
+            mentions={mentionsQuery.data?.data.items ?? []}
+            regions={regionsQuery.data?.data ?? []}
+            activeRegionCode={selectedRegionCode}
+            showRegions={showRegions}
+            isMentionsLoading={isMentionsLoading}
+            isMentionsFetching={isMentionsRefreshing}
+            isRegionsLoading={isRegionsLoading}
+            onToggleRegions={() => setShowRegions((value) => !value)}
+            onRegionSelect={setSelectedRegionCode}
+            searchQuery={search}
+          />
+        </div>
       </section>
+
+      <Dialog open={isFiltersOpen} onOpenChange={setIsFiltersOpen}>
+        <DialogOverlay />
+        <DialogContent className="max-h-[88vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Filters</DialogTitle>
+            <DialogDescription>Adjust map and mention results for mobile view.</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div className="space-y-1">
+              <Label htmlFor="mobile-search">Search</Label>
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
+                <Input
+                  id="mobile-search"
+                  className="pl-8"
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  placeholder="Country, quote, or S05E14"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <Label htmlFor="mobile-season-from">Season from</Label>
+                <Input
+                  id="mobile-season-from"
+                  type="number"
+                  value={seasonFrom}
+                  min={1}
+                  max={36}
+                  onChange={(event) => setSeasonFrom(Number(event.target.value))}
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="mobile-season-to">Season to</Label>
+                <Input
+                  id="mobile-season-to"
+                  type="number"
+                  value={seasonTo}
+                  min={1}
+                  max={36}
+                  onChange={(event) => setSeasonTo(Number(event.target.value))}
+                />
+              </div>
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="mobile-confidence">Confidence</Label>
+              <Select id="mobile-confidence" value={confidence} onChange={(event) => setConfidence(event.target.value)}>
+                <option value="all">All</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </Select>
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="mobile-source">Source</Label>
+              <Select id="mobile-source" value={sourceType} onChange={(event) => setSourceType(event.target.value)}>
+                <option value="all">All sources</option>
+                <option value="WIKI_PAGE">Wiki page</option>
+                <option value="REFERENCE_LINK">Reference link</option>
+              </Select>
+            </div>
+            <Button className="w-full" onClick={() => setIsFiltersOpen(false)}>
+              Apply filters
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Sheet open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
+        <SheetContent side="bottom" className="md:hidden">
+          <SheetHeader>
+            <SheetTitle>Country details</SheetTitle>
+            <SheetDescription>Mentions, trends, and region drill-down.</SheetDescription>
+          </SheetHeader>
+          <div className="mx-auto max-h-[72vh] overflow-y-auto px-1 pb-4 [max-width:fit-content] [scrollbar-gutter:stable_both-edges]">
+            <CountryPanel
+              country={selectedCountry}
+              mentions={mentionsQuery.data?.data.items ?? []}
+              regions={regionsQuery.data?.data ?? []}
+              activeRegionCode={selectedRegionCode}
+              showRegions={showRegions}
+              isMentionsLoading={isMentionsLoading}
+              isMentionsFetching={isMentionsRefreshing}
+              isRegionsLoading={isRegionsLoading}
+              onToggleRegions={() => setShowRegions((value) => !value)}
+              onRegionSelect={setSelectedRegionCode}
+              searchQuery={search}
+              unboundedContent
+            />
+          </div>
+        </SheetContent>
+      </Sheet>
     </main>
   );
 }

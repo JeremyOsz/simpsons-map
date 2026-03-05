@@ -28,6 +28,11 @@
 }
 
 @layer utilities {
+  .map-canvas {
+    touch-action: none;
+    overscroll-behavior: contain;
+  }
+
   .donut-ring {
     box-shadow:
       0 0 0 3px #111827,

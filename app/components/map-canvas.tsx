@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import worldMap from "geojson-world-map/lib/world.js";
 import type { Country, Region } from "@/types/domain";
@@ -45,6 +45,7 @@ function mentionsLabel(count: number): string {
 }
 
 export function MapCanvas({ countries, regions, activeIso2, activeRegionCode, showRegions, onCountrySelect, onRegionSelect }: MapCanvasProps) {
+  const svgRef = useRef<SVGSVGElement | null>(null);
   const [regionFeatures, setRegionFeatures] = useState<RegionFeature[]>([]);
   const [isLoadingRegionGeometry, setIsLoadingRegionGeometry] = useState(false);
   const [hoveredCountry, setHoveredCountry] = useState<{ label: string; x: number; y: number } | null>(null);
@@ -53,6 +54,12 @@ export function MapCanvas({ countries, regions, activeIso2, activeRegionCode, sh
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
+  const [pinchStart, setPinchStart] = useState<{
+    distance: number;
+    zoom: number;
+    pan: { x: number; y: number };
+    midpoint: { x: number; y: number };
+  } | null>(null);
 
   const width = 1100;
   const height = 560;
@@ -107,6 +114,20 @@ export function MapCanvas({ countries, regions, activeIso2, activeRegionCode, sh
     void loadRegions();
   }, [activeIso2, showRegions]);
 
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const preventGestureDefault = (event: Event) => event.preventDefault();
+    svg.addEventListener("gesturestart", preventGestureDefault, { passive: false });
+    svg.addEventListener("gesturechange", preventGestureDefault, { passive: false });
+    svg.addEventListener("gestureend", preventGestureDefault, { passive: false });
+    return () => {
+      svg.removeEventListener("gesturestart", preventGestureDefault);
+      svg.removeEventListener("gesturechange", preventGestureDefault);
+      svg.removeEventListener("gestureend", preventGestureDefault);
+    };
+  }, []);
+
   const regionMode = showRegions && activeIso2 && regionFeatures.length > 0;
   const regionProjection = useMemo(() => {
     if (!regionMode) return undefined;
@@ -128,11 +149,15 @@ export function MapCanvas({ countries, regions, activeIso2, activeRegionCode, sh
     });
   };
 
+  const touchDistance = (a: React.Touch, b: React.Touch) => Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+  const touchMidpoint = (a: React.Touch, b: React.Touch) => ({ x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 });
+
   return (
     <Card className="overflow-hidden bg-white/85">
       <CardContent className="p-0">
         <div className="relative">
           <svg
+            ref={svgRef}
             viewBox={`0 0 ${width} ${height}`}
             className={`map-canvas h-[560px] w-full bg-[radial-gradient(circle_at_20%_0%,#ffffff88_0%,transparent_45%),linear-gradient(180deg,#c6ecff,#e6f6ff)] ${zoom > 1 ? (isPanning ? "cursor-grabbing" : "cursor-grab") : ""}`}
             onWheel={(event) => {
@@ -163,6 +188,64 @@ export function MapCanvas({ countries, regions, activeIso2, activeRegionCode, sh
             }}
             onMouseUp={() => setIsPanning(false)}
             onMouseLeave={() => setIsPanning(false)}
+            onTouchStart={(event) => {
+              if (event.touches.length === 2) {
+                event.preventDefault();
+                const rect = event.currentTarget.getBoundingClientRect();
+                const first = event.touches[0];
+                const second = event.touches[1];
+                if (!first || !second) return;
+                const midpoint = touchMidpoint(first, second);
+                setPinchStart({
+                  distance: touchDistance(first, second),
+                  zoom,
+                  pan,
+                  midpoint: { x: midpoint.x - rect.left, y: midpoint.y - rect.top }
+                });
+                setIsPanning(false);
+                return;
+              }
+
+              if (event.touches.length === 1 && zoom > 1) {
+                event.preventDefault();
+                const touch = event.touches[0];
+                if (!touch) return;
+                setIsPanning(true);
+                setPanStart({ x: touch.clientX - pan.x, y: touch.clientY - pan.y });
+              }
+            }}
+            onTouchMove={(event) => {
+              if (event.touches.length === 2 && pinchStart) {
+                event.preventDefault();
+                const first = event.touches[0];
+                const second = event.touches[1];
+                if (!first || !second) return;
+                const ratio = touchDistance(first, second) / pinchStart.distance;
+                const nextZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinchStart.zoom * ratio));
+                setZoom(nextZoom);
+                setPan({
+                  x: pinchStart.midpoint.x - ((pinchStart.midpoint.x - pinchStart.pan.x) * nextZoom) / pinchStart.zoom,
+                  y: pinchStart.midpoint.y - ((pinchStart.midpoint.y - pinchStart.pan.y) * nextZoom) / pinchStart.zoom
+                });
+                if (nextZoom === MIN_ZOOM) setPan({ x: 0, y: 0 });
+                return;
+              }
+
+              if (event.touches.length === 1 && isPanning) {
+                event.preventDefault();
+                const touch = event.touches[0];
+                if (!touch) return;
+                setPan({ x: touch.clientX - panStart.x, y: touch.clientY - panStart.y });
+              }
+            }}
+            onTouchEnd={(event) => {
+              if (event.touches.length < 2) setPinchStart(null);
+              if (event.touches.length === 0) setIsPanning(false);
+            }}
+            onTouchCancel={() => {
+              setPinchStart(null);
+              setIsPanning(false);
+            }}
           >
             <g transform={`translate(${pan.x} ${pan.y}) scale(${zoom})`}>
               {!regionMode &&

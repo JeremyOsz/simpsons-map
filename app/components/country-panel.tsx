@@ -18,6 +18,7 @@ interface CountryPanelProps {
   onToggleRegions: () => void;
   onRegionSelect: (regionCode?: string) => void;
   searchQuery?: string;
+  unboundedContent?: boolean;
 }
 
 function episodeLabel(episodeId: string): string {
@@ -38,7 +39,8 @@ export function CountryPanel({
   isRegionsLoading,
   onToggleRegions,
   onRegionSelect,
-  searchQuery
+  searchQuery,
+  unboundedContent = false
 }: CountryPanelProps) {
   const [trendOpen, setTrendOpen] = useState(true);
   const trendRows = useMemo(
@@ -113,7 +115,7 @@ export function CountryPanel({
         )}
       </CardHeader>
 
-      <CardContent className="grid max-h-[610px] gap-5 overflow-y-auto py-4">
+      <CardContent className={`grid gap-5 py-4 ${unboundedContent ? "" : "max-h-[610px] overflow-y-auto"}`}>
         {showRegions && isRegionsLoading && (
           <section className="space-y-2">
             <h3 className="text-sm font-black uppercase tracking-wide text-slate-700">Region breakdown</h3>
